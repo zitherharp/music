@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.zitherharp.music.audio"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/audio_app_name"
+        android:icon="@mipmap/ic_audio_launcher"
+        android:roundIcon="@mipmap/ic_audio_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Music">
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Music.NoActionBar"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan">
+        </activity>
+        <service
+            android:name=".ui.audio.AudioPlayerService"
+            android:enabled="true"
+            android:foregroundServiceType="mediaPlayback"/>
+    </application>
+</manifest>

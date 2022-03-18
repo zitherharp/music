@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/audio_background"
+            android:src="@mipmap/ic_short_launcher"
+            android:background="@mipmap/ic_short_launcher"
+            android:contentDescription="@string/user"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_horizontal_margin">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/activity_vertical_margin">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    app:cardCornerRadius="0dp">
+
+                    <ImageView
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:id="@+id/audio_image"
+                        android:scaleType="centerCrop"
+                        android:background="@color/short_app_color"
+                        android:contentDescription="@string/user" />
+
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/favourite_audio"
+                    android:src="@drawable/ic_short_favorite_border_24"
+                    android:layout_toStartOf="@+id/share_audio"
+                    android:contentDescription="@string/favourite" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:id="@+id/share_audio"
+                    android:src="@drawable/ic_short_share_24"
+                    android:layout_alignParentEnd="true"
+                    android:contentDescription="@string/share" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/audio_vietnamese_name"
+                    android:textSize="25sp"
+                    android:layout_marginVertical="2dp"
+                    android:text="@string/audio"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/audio_chinese_name"
+                    android:layout_marginVertical="2dp"
+                    android:text="@string/audio"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginVertical="5dp"
+                    android:background="@color/black"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/artist_name"
+                    android:layout_marginVertical="5dp"
+                    android:text="@string/short_app_name"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/audio_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/tab_layout_height"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/audio_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/tab_layout_height"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

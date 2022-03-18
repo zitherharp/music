@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.zitherharp.music.shorts"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/short_app_name"
+        android:icon="@mipmap/ic_short_launcher"
+        android:roundIcon="@mipmap/ic_short_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Short">
+        <activity
+            android:name=".LauncherActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize|adjustPan"/>
+        <activity android:name=".ui.audio.AudioDetailActivity"/>
+        <activity android:name=".ui.artist.ArtistDetailActivity"/>
+        <activity android:name=".ui.shorts.ShortFullscreenActivity"/>
+        <activity android:name=".ui.comment.CommentListActivity"/>
+    </application>
+</manifest>

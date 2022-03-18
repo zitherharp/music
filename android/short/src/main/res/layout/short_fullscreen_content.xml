@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/short_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="false"
+        android:isScrollContainer="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="60dp"
+            android:paddingVertical="@dimen/activity_vertical_margin">
+
+            <TableRow android:paddingBottom="@dimen/activity_horizontal_margin">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_short_artist_24"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    android:contentDescription="@string/audio"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/artist_name"
+                    android:textColor="@color/white"
+                    android:singleLine="true"
+                    android:text="@string/artist"/>
+            </TableRow>
+
+            <TableRow>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_short_audio_24"
+                    android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                    android:contentDescription="@string/audio"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/audio_name"
+                    android:textColor="@color/white"
+                    android:singleLine="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:scrollHorizontally="true"
+                    android:ellipsize="marquee"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:text="@string/audio"/>
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_marginBottom="90dp">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:cardCornerRadius="20dp"
+                android:layout_marginBottom="@dimen/activity_vertical_margin">
+
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:id="@+id/artist_image"
+                    android:src="@mipmap/ic_short_launcher_round"
+                    android:contentDescription="@string/artist" />
+
+            </androidx.cardview.widget.CardView>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/favourite_button"
+                android:src="@drawable/ic_short_favorite_border_24"
+                style="?android:attr/actionButtonStyle"
+                android:contentDescription="@string/favourite" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/favourite_count"
+                android:text="0"
+                android:textColor="@color/white"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment_button"
+                style="?android:attr/actionButtonStyle"
+                android:src="@drawable/ic_short_comment_24"
+                android:contentDescription="@string/comment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/comment_count"
+                android:text="0"
+                android:textColor="@color/white"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/share_button"
+                android:src="@drawable/ic_short_share_24"
+                style="?android:attr/actionButtonStyle"
+                android:contentDescription="@string/share" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/share"
+                android:textColor="@color/white"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</FrameLayout>
