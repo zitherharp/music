@@ -2,9 +2,10 @@ package com.zitherharp.music.core
 
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.Serializable
 import java.net.URL
 
-abstract class Spreadsheet(val id: String) {
+abstract class Spreadsheet(val id: String): Serializable {
     protected lateinit var chineseName: String
     protected lateinit var vietnameseName: String
 
@@ -13,6 +14,7 @@ abstract class Spreadsheet(val id: String) {
 
     companion object {
         const val EMPTY_CHAR = ""
+        const val SPACE_CHAR = " "
         const val SPLIT_CHAR = "/"
         const val CONCAT_CHAR = " - "
         const val COMBINE_CHAR = " & "
@@ -34,24 +36,24 @@ abstract class Spreadsheet(val id: String) {
             return jsonObject.getJSONArray("values")
         }
 
-        fun JSONArray.requireInt(index: Int): Int = try { getInt(index) } catch (e: Exception) { 0 }
+        fun JSONArray.requireLong(index: Int): Long = try { getLong(index) } catch (e: Exception) { 0L }
         fun JSONArray.requireString(index: Int): String = try { getString(index) } catch (e: Exception) { EMPTY_CHAR }
 
-        fun List<Spreadsheet>.getId(): String {
+        fun List<Spreadsheet>.getId(splitChar: String = SPLIT_CHAR): String {
             var id = EMPTY_CHAR
-            forEach { id += it.id + SPLIT_CHAR }
-            return id.removeSuffix(SPLIT_CHAR)
+            forEach { id += it.id + splitChar }
+            return id.removeSuffix(splitChar)
         }
 
-        fun List<Spreadsheet>.getName(language: Language): String {
+        fun List<Spreadsheet>.getName(language: Language, splitChar: String = SPLIT_CHAR): String {
             var name = EMPTY_CHAR
             forEach {
-                name += SPLIT_CHAR + when (language) {
+                name += splitChar + when (language) {
                     Language.CHINESE -> it.chineseName
                     Language.VIETNAMESE -> it.vietnameseName
                 }
             }
-            return name.removePrefix(SPLIT_CHAR)
+            return name.removePrefix(splitChar)
         }
     }
 

@@ -11,7 +11,7 @@ import com.zitherharp.music.Extension.setImageUrl
 import com.zitherharp.music.core.Language
 import com.zitherharp.music.core.QQMusic
 import com.zitherharp.music.core.Spreadsheet.Companion.getName
-import com.zitherharp.music.model.Audio.Companion.toString
+import com.zitherharp.music.core.Youtube.Companion.toString
 import com.zitherharp.music.model.Short
 import com.zitherharp.music.shorts.databinding.ShortFullscreenContentBinding
 import com.zitherharp.music.shorts.extension.Extension.onArtistDetailActivity

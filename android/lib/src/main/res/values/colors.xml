@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="audio_app_color">#3FE1F4</color>
     <color name="music_app_color">#FFFFFF</color>
-    <color name="short_app_color">#FEAFC7</color>
+    <color name="audio_app_color">#3FE1F4</color>
     <color name="photo_app_color">#B83EBA</color>
-    <color name="video_app_color">#fbf304</color>
+    <color name="short_app_color">#FEAFC7</color>
+    <color name="television_app_color">#10D146</color>
+    <color name="video_app_color">#FFCA1A</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 </resources>

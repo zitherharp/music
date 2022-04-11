@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.zitherharp.music.tv"
+        applicationId 'com.zitherharp.music.videotv'
         minSdk 21
         targetSdk 31
         versionCode 1
@@ -28,6 +28,7 @@ dependencies {
     implementation 'androidx.leanback:leanback:1.0.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.github.bumptech.glide:glide:4.13.1'
+    implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:11.0.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0-native-mt'
 }

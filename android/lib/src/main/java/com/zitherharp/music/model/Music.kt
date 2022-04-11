@@ -41,7 +41,7 @@ enum class Music {
                 AUDIO -> R.mipmap.ic_audio_launcher
                 PHOTO -> R.mipmap.ic_photo_launcher
                 SHORT -> R.mipmap.ic_short_launcher
-                VIDEO -> R.mipmap.ic_audio_launcher
+                VIDEO -> R.mipmap.ic_video_launcher
                 else -> R.mipmap.ic_music_launcher
             })
     }

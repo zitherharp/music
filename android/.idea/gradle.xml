@@ -12,9 +12,12 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/audio" />
             <option value="$PROJECT_DIR$/lib" />
-            <option value="$PROJECT_DIR$/musictv" />
             <option value="$PROJECT_DIR$/photo" />
+            <option value="$PROJECT_DIR$/phototv" />
             <option value="$PROJECT_DIR$/short" />
+            <option value="$PROJECT_DIR$/television" />
+            <option value="$PROJECT_DIR$/video" />
+            <option value="$PROJECT_DIR$/videotv" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

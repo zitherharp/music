@@ -2,9 +2,7 @@ package com.zitherharp.music.model
 
 import com.zitherharp.music.core.Youtube
 
-class Short(id: String,
-            val artistId: String,
-            val audioId: String): Youtube(id) {
+class Short(id: String, val audioId: String): Youtube(id) {
 
     companion object {
         private const val ARTIST_ID = 1
@@ -18,8 +16,9 @@ class Short(id: String,
                 jsonValue = jsonValues.getJSONArray(i)
                 repository[jsonValue.requireString(ID)] = Short(
                     jsonValue.requireString(ID),
-                    jsonValue.requireString(ARTIST_ID),
-                    jsonValue.requireString(AUDIO_ID))
+                    jsonValue.requireString(AUDIO_ID)).apply {
+                        artistId = jsonValue.requireString(ARTIST_ID)
+                }
             }
         }
 
@@ -36,32 +35,13 @@ class Short(id: String,
         }
     }
 
-    fun getShareUrl() =
-        "https://youtube.com/shorts/$id"
+    fun getShareUrl() = "https://youtube.com/shorts/$id"
 
     fun getAudios(): List<Audio> {
-        val audios = ArrayList<Audio>()
-        for (audioId in audioId.split(SPLIT_CHAR)) {
-            for (audio in Audio.repository.values) {
-                if (audio.id == audioId) {
-                    audios.add(audio)
-                    break
-                }
+        return ArrayList<Audio>().apply {
+            for (audioId in audioId.split(SPLIT_CHAR)) {
+                Audio.repository[audioId]?.let { audio -> add(audio) }
             }
         }
-        return audios
-    }
-
-    fun getArtists(): List<Artist> {
-        val artists = ArrayList<Artist>()
-        for (artistId in artistId.split(SPLIT_CHAR)) {
-            for (artist in Artist.repository.values) {
-                if (artist.id == artistId) {
-                    artists.add(artist)
-                    break
-                }
-            }
-        }
-        return artists
     }
 }

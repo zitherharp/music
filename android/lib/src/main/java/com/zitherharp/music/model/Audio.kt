@@ -3,11 +3,9 @@ package com.zitherharp.music.model
 import com.zitherharp.music.core.Language
 import com.zitherharp.music.core.Youtube
 
-class Audio(id: String, val artistId: String): Youtube(id) {
+class Audio(id: String): Youtube(id) {
 
     companion object {
-        private const val ARTIST_ID = 1
-
         val repository: MutableMap<String, Audio> = HashMap()
 
         init {
@@ -15,8 +13,8 @@ class Audio(id: String, val artistId: String): Youtube(id) {
             for (i in 0 until jsonValues.length()) {
                 jsonValue = jsonValues.getJSONArray(i)
                 repository[jsonValue.requireString(ID)] = Audio(
-                    jsonValue.requireString(ID),
-                    jsonValue.requireString(ARTIST_ID)).apply {
+                    jsonValue.requireString(ID)).apply {
+                        artistId = jsonValues.requireString(ARTIST_ID)
                         chineseName = jsonValue.requireString(CHINESE_NAME)
                         vietnameseName = jsonValue.requireString(VIETNAMESE_NAME)
                         chineseDescription = jsonValue.requireString(CHINESE_DESCRIPTION)
@@ -36,30 +34,6 @@ class Audio(id: String, val artistId: String): Youtube(id) {
             }
             return audios
         }
-
-        fun List<Audio>.toString(language: Language): String {
-            var string = EMPTY_CHAR
-            forEach {
-                string += it.toString(language) + COMBINE_CHAR
-            }
-            return string.removeSuffix(COMBINE_CHAR)
-        }
-    }
-
-    fun toString(language: Language) =
-        getName(language) + CONCAT_CHAR + getArtists().getName(language)
-
-    fun getArtists(): List<Artist> {
-        val artists = ArrayList<Artist>()
-        for (artistId in artistId.split(SPLIT_CHAR)) {
-            for (artist in Artist.repository.values) {
-                if (artist.id == artistId) {
-                    artists.add(artist)
-                    break
-                }
-            }
-        }
-        return artists
     }
 
     fun getShorts(): List<Short> {

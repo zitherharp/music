@@ -40,11 +40,7 @@ class Artist(id: String): QQMusic(id) {
     fun getShorts(): List<Short> {
         val shorts = ArrayList<Short>()
         for (short in Short.repository.values) {
-            for (artistId in short.artistId.split(SPLIT_CHAR)) {
-                if (artistId == id) {
-                    shorts.add(short)
-                }
-            }
+
         }
         return shorts
     }
@@ -52,11 +48,7 @@ class Artist(id: String): QQMusic(id) {
     fun getAudios(): List<Audio> {
         val audios = ArrayList<Audio>()
         for (audio in Audio.repository.values) {
-            for (artistId in audio.artistId.split(SPLIT_CHAR)) {
-                if (artistId == id) {
-                    audios.add(audio)
-                }
-            }
+
         }
         return audios
     }

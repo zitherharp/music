@@ -4,15 +4,16 @@
     <string name="audio_app_name">Zither Harp Music: Audio</string>
     <string name="photo_app_name">Zither Harp Music: Photo</string>
     <string name="short_app_name">Zither Harp Music: Short</string>
+    <string name="television_app_name">Zither Harp Music: Television</string>
     <string name="video_app_name">Zither Harp Music: Video</string>
     <string name="auto_generated_slogan">Do Zither Harp Music tự động tạo</string>
     <string name="no_connection">Không có kết nối</string>
     <string name="no_information">Không có thông tin</string>
     <string name="vietnamese">Tiếng Việt</string>
     <string name="chinese">Tiếng Trung</string>
-    <string name="album">Album</string>
-    <string name="artist">Artist</string>
-    <string name="audio">Audio</string>
+    <string name="album">Đĩa nhạc</string>
+    <string name="artist">Nghệ sĩ</string>
+    <string name="audio">Âm thanh</string>
     <string name="photo">Photo</string>
     <string name="shorts">Short</string>
     <string name="video">Video</string>
@@ -33,6 +34,7 @@
     <string name="close">Đóng</string>
     <string name="cancel">Huỷ</string>
     <string name="dismiss">Bỏ qua</string>
+    <string name="retry">Thử lại</string>
     <string name="save">Lưu</string>
     <string name="all">Tất cả</string>
     <string name="follow">Theo dõi</string>
@@ -41,4 +43,11 @@
     <string name="download">Tải xuống</string>
     <string name="block">Chặn</string>
     <string name="back">Trở lại</string>
+    <string name="library">Thư viện</string>
+    <string name="recent">Gần đây</string>
+    <string name="playlist">Danh sách phát</string>
+    <string name="subscribe">Đăng ký</string>
+    <string name="description">Mô tả</string>
+    <string name="song">Bài hát</string>
+    <string name="singer">Ca sĩ</string>
 </resources>

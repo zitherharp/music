@@ -28,15 +28,11 @@ abstract class FragmentStateAdapter: FragmentStateAdapter {
 
     override fun getItemCount() = tabNames.size
 
-    override fun createFragment(position: Int): Fragment {
-        TODO("Index $position out of bounds for length ${tabNames.size}")
-    }
-
     fun attach(tabLayout: TabLayout, viewPager: ViewPager2, tabSelectedIndex: Int = 0) {
         tabLayout.apply {
             viewPager.adapter = this@FragmentStateAdapter
-            TabLayoutMediator(this, viewPager) {
-                    tab: TabLayout.Tab, position: Int -> tab.text = tabNames[position]
+            TabLayoutMediator(this, viewPager) { tab, position ->
+                tab.text = tabNames[position]
             }.attach()
             getTabAt(tabSelectedIndex)?.select()
         }.bringToFront()

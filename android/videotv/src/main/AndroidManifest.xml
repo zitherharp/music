@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zitherharp.music.tv">
+    package="com.zitherharp.music.videotv">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,11 +15,10 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_music_launcher"
-        android:label="@string/music_app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.Music">
         <activity
-            android:name=".MainActivity"
+            android:name="com.zitherharp.music.videotv.MainActivity"
             android:exported="true"
             android:banner="@drawable/app_icon_your_company"
             android:icon="@drawable/app_icon_your_company"
@@ -31,17 +30,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LauncherActivity"
+            android:name="com.zitherharp.music.videotv.LauncherActivity"
             android:exported="false"
             android:theme="@style/Theme.Leanback.Onboarding"/>
         <activity
-            android:name=".DetailsActivity"
+            android:name="com.zitherharp.music.videotv.DetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".PlaybackActivity"
+            android:name="com.zitherharp.music.videotv.PlaybackActivity"
             android:exported="false" />
         <activity
-            android:name=".BrowseErrorActivity"
+            android:name="com.zitherharp.music.videotv.BrowseErrorActivity"
             android:exported="false" />
     </application>
 

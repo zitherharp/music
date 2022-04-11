@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recent"
+        android:textStyle="bold"
+        android:padding="@dimen/activity_horizontal_margin"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:background="@color/black"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_history"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
+                android:tint="@color/black"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+                android:text="Video đã xem"/>
+        </TableRow>
+
+        <TableRow android:paddingVertical="@dimen/activity_horizontal_margin">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_video_library"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
+                android:tint="@color/black"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+                android:text="Video của bạn"/>
+        </TableRow>
+
+        <TableRow>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@android:drawable/stat_sys_download_done"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
+                android:tint="@color/black"/>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Video tải xuống"/>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="0 video"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </TableRow>
+
+        <TableRow android:paddingTop="@dimen/activity_horizontal_margin">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_access_time"
+                android:paddingHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_gravity="center"
+                android:tint="@color/black"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textStyle="bold"
+                android:text="Xem sau"/>
+        </TableRow>
+    </TableLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginVertical="@dimen/activity_vertical_margin"
+        android:background="@color/black"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/playlist"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/black"
+            style="?buttonBarStyle"
+            android:paddingHorizontal="@dimen/activity_horizontal_margin"
+            android:src="@drawable/ic_video_library"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
