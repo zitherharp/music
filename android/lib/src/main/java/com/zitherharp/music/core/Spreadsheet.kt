@@ -1,5 +1,6 @@
 package com.zitherharp.music.core
 
+import com.zitherharp.music.model.Video
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.Serializable
@@ -41,7 +42,9 @@ abstract class Spreadsheet(val id: String): Serializable {
 
         fun List<Spreadsheet>.getId(splitChar: String = SPLIT_CHAR): String {
             var id = EMPTY_CHAR
-            forEach { id += it.id + splitChar }
+            forEach {
+                id += it.id + splitChar
+            }
             return id.removeSuffix(splitChar)
         }
 

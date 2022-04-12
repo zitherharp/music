@@ -46,7 +46,7 @@ abstract class Youtube(id: String): Spreadsheet(id) {
         TimeUnit.SECONDS.toSeconds(duration) -
                 TimeUnit.MINUTES.toSeconds(TimeUnit.SECONDS.toMinutes(duration)))
 
-    fun getHashTag(language: Language = Language.CHINESE): String {
+    fun getHashTag(language: Language): String {
         var hashTags = "#${getName(language)}"
         for (artist in getArtists()) {
             hashTags += SPACE_CHAR + "#${artist.getName(language)}"
@@ -56,8 +56,10 @@ abstract class Youtube(id: String): Spreadsheet(id) {
 
     fun getArtists(): List<Artist> {
         return ArrayList<Artist>().apply {
-            for (artistId in artistId.split(SPLIT_CHAR)) {
-                Artist.repository[artistId]?.let { artist -> add(artist) }
+            artistId.split(SPLIT_CHAR).forEach { id ->
+                Artist.repository[id]?.let { artist ->
+                    add(artist)
+                }
             }
         }
     }

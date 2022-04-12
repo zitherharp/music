@@ -34,6 +34,16 @@ class Audio(id: String): Youtube(id) {
             }
             return audios
         }
+
+        fun Audio.getVideos(): List<Video> {
+            return ArrayList<Video>().apply {
+                Video.repository.values.forEach { video ->
+                    if (video.audioId.contains(id)) {
+                        add(video)
+                    }
+                }
+            }
+        }
     }
 
     fun getShorts(): List<Short> {

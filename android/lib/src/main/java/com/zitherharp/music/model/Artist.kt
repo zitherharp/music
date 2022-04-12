@@ -24,32 +24,60 @@ class Artist(id: String): QQMusic(id) {
             }
         }
 
-        fun String?.getArtists(): List<Artist> {
-            val artists = ArrayList<Artist>()
-            if (!isNullOrBlank()) {
-                for (id in split(SPLIT_CHAR)) {
-                    repository[id]?.let {
-                        artists.add(it)
+        fun String.getArtists(): List<Artist> {
+            return ArrayList<Artist>().apply {
+                split(SPLIT_CHAR).forEach { id ->
+                    repository[id]?.let { artist ->
+                        add(artist)
                     }
                 }
             }
-            return artists
         }
-    }
 
-    fun getShorts(): List<Short> {
-        val shorts = ArrayList<Short>()
-        for (short in Short.repository.values) {
-
+        fun Artist.getShorts(): List<Short> {
+            return ArrayList<Short>().apply {
+                Short.repository.values.forEach { short ->
+                    if (short.artistId.contains(id)) {
+                        add(short)
+                    }
+                }
+            }
         }
-        return shorts
-    }
 
-    fun getAudios(): List<Audio> {
-        val audios = ArrayList<Audio>()
-        for (audio in Audio.repository.values) {
-
+        fun Artist.getAudios(): List<Audio> {
+            return ArrayList<Audio>().apply {
+                Audio.repository.values.forEach { audio ->
+                    if (audio.artistId.contains(id)) {
+                        add( audio)
+                    }
+                }
+            }
         }
-        return audios
+
+        fun Artist.getVideos(): List<Video> {
+            return ArrayList<Video>().apply {
+                Video.repository.values.forEach { video ->
+                    if (video.artistId.contains(id)) {
+                        add(video)
+                    }
+                }
+            }
+        }
+
+        fun List<Artist>.getVideos(isGetAll: Boolean): List<Video> {
+            return ArrayList<Video>().apply {
+                if (isGetAll) {
+                    this@getVideos.forEach { artist ->
+                        addAll(artist.getVideos())
+                    }
+                } else {
+                    Video.repository.values.forEach { video ->
+                        if (video.artistId == getId()) {
+                            add(video)
+                        }
+                    }
+                }
+            }
+        }
     }
 }

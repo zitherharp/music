@@ -14,9 +14,10 @@
     <string name="album">Đĩa nhạc</string>
     <string name="artist">Nghệ sĩ</string>
     <string name="audio">Âm thanh</string>
-    <string name="photo">Photo</string>
+    <string name="photo">Ảnh</string>
     <string name="shorts">Short</string>
     <string name="video">Video</string>
+    <string name="tag">Thẻ</string>
     <string name="search">Tìm kiếm</string>
     <string name="home">Trang chủ</string>
     <string name="explore">Khám phá</string>
@@ -33,7 +34,9 @@
     <string name="comment">Bình luận</string>
     <string name="close">Đóng</string>
     <string name="cancel">Huỷ</string>
+    <string name="like">Thích</string>
     <string name="dismiss">Bỏ qua</string>
+    <string name="dislike">Không thích</string>
     <string name="retry">Thử lại</string>
     <string name="save">Lưu</string>
     <string name="all">Tất cả</string>

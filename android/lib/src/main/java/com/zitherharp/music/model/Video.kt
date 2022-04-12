@@ -2,7 +2,8 @@ package com.zitherharp.music.model
 
 import com.zitherharp.music.core.Youtube
 
-class Video(id: String, private val audioId: String): Youtube(id) {
+class Video(id: String): Youtube(id) {
+    lateinit var audioId: String
 
     companion object {
         val category = arrayOf(
@@ -18,8 +19,9 @@ class Video(id: String, private val audioId: String): Youtube(id) {
             for (i in 0 until jsonValues.length()) {
                 jsonValue = jsonValues.getJSONArray(i)
                 repository[jsonValue.requireString(ID)] = Video(
-                    jsonValue.requireString(ID), EMPTY_CHAR).apply {
+                    jsonValue.requireString(ID)).apply {
                         artistId = jsonValue.requireString(ARTIST_ID)
+                        audioId = EMPTY_CHAR
                         chineseName = jsonValue.requireString(CHINESE_NAME)
                         vietnameseName = jsonValue.requireString(VIETNAMESE_NAME)
                         chineseDescription = jsonValue.requireString(CHINESE_DESCRIPTION)
@@ -28,12 +30,24 @@ class Video(id: String, private val audioId: String): Youtube(id) {
                 }
             }
         }
+
+        fun String.getVideos(): List<Video> {
+            return ArrayList<Video>().apply {
+                split(SPLIT_CHAR).forEach { id ->
+                    repository[id]?.let { video ->
+                        add(video)
+                    }
+                }
+            }
+        }
     }
 
     fun getAudios(): List<Audio> {
         return ArrayList<Audio>().apply {
-            for (audioId in audioId.split(SPLIT_CHAR)) {
-                Audio.repository[audioId]?.let { audio -> add(audio) }
+            audioId.split(SPLIT_CHAR).forEach { id ->
+                Audio.repository[id]?.let { audio ->
+                    add(audio)
+                }
             }
         }
     }

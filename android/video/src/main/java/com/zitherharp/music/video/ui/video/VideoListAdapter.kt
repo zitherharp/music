@@ -35,15 +35,16 @@ class VideoListAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: VideoListContent, position: Int) {
         with(holder) {
+            // TODO: Video
             val video = videos[position]
             videoDuration.text = video.getDuration()
             videoTitle.text = video.getName(Language.VIETNAMESE)
             videoThumbnail.setImageUrl(video.getImageUrl(Youtube.Image.HQDEFAULT))
+            // TODO: Artist
             val artists = video.getArtists()
-            if (artists.isNotEmpty()) {
-                artistImage.setImageUrl(artists.first().getImageUrl(QQMusic.Image.SMALL))
-                videoSubtitle.text = artists.getName(Language.VIETNAMESE, Spreadsheet.COMBINE_CHAR)
-            }
+            artistImage.setImageUrl(artists.first().getImageUrl(QQMusic.Image.SMALL))
+            videoSubtitle.text = artists.getName(Language.VIETNAMESE, Spreadsheet.COMBINE_CHAR)
+            // TODO: ItemView
             itemView.setOnClickListener {
                 context.startActivity(Intent(context, VideoActivity::class.java).apply {
                     putExtra(VideoActivity::class.java.name, video.id)
