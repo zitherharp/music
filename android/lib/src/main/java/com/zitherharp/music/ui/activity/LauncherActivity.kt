@@ -67,7 +67,7 @@ abstract class LauncherActivity: AppCompatActivity() {
                 }
             }
         } else {
-            Snackbar.make(appBackground, getString(R.string.no_connection), Snackbar.LENGTH_SHORT)
+            Snackbar.make(appBackground, getString(R.string.no_connection), Snackbar.LENGTH_INDEFINITE)
                 .setAction(getString(R.string.retry)) { onLoad() }.show()
         }
     }

@@ -1,6 +1,5 @@
 package com.zitherharp.music.core
 
-import com.zitherharp.music.model.Video
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.Serializable
@@ -19,6 +18,8 @@ abstract class Spreadsheet(val id: String): Serializable {
         const val SPLIT_CHAR = "/"
         const val CONCAT_CHAR = " - "
         const val COMBINE_CHAR = " & "
+        const val HASHTAG_CHAR = "#"
+        const val MENTION_CHAR = "@"
 
         const val ID = 0
         const val VIETNAMESE_NAME = 2

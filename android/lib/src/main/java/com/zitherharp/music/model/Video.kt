@@ -5,6 +5,10 @@ import com.zitherharp.music.core.Youtube
 class Video(id: String): Youtube(id) {
     lateinit var audioId: String
 
+    interface Interface : Music.Interface {
+        fun getVideos(): List<Video>
+    }
+
     companion object {
         val category = arrayOf(
             "Đề xuất",

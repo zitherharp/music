@@ -54,16 +54,6 @@ class Artist(id: String): QQMusic(id) {
             }
         }
 
-        fun Artist.getVideos(): List<Video> {
-            return ArrayList<Video>().apply {
-                Video.repository.values.forEach { video ->
-                    if (video.artistId.contains(id)) {
-                        add(video)
-                    }
-                }
-            }
-        }
-
         fun List<Artist>.getVideos(isGetAll: Boolean): List<Video> {
             return ArrayList<Video>().apply {
                 if (isGetAll) {
@@ -71,11 +61,23 @@ class Artist(id: String): QQMusic(id) {
                         addAll(artist.getVideos())
                     }
                 } else {
-                    Video.repository.values.forEach { video ->
-                        if (video.artistId == getId()) {
-                            add(video)
+                    this@getVideos.forEach { artist ->
+                        Video.repository.values.forEach { video ->
+                            if (video.artistId == artist.id) {
+                                add(video)
+                            }
                         }
                     }
+                }
+            }
+        }
+    }
+
+    fun getVideos(): List<Video> {
+        return ArrayList<Video>().apply {
+            Video.repository.values.forEach { video ->
+                if (video.artistId.contains(id)) {
+                    add(video)
                 }
             }
         }

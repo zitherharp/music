@@ -9,19 +9,15 @@ import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.You
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.utils.loadOrCueVideo
 import com.zitherharp.music.Extension.setImageUrl
 import com.zitherharp.music.Extension.share
-import com.zitherharp.music.core.Language
-import com.zitherharp.music.core.QQMusic
-import com.zitherharp.music.core.Spreadsheet
+import com.zitherharp.music.core.*
 import com.zitherharp.music.core.Spreadsheet.Companion.getId
 import com.zitherharp.music.core.Spreadsheet.Companion.getName
+import com.zitherharp.music.model.*
 import com.zitherharp.music.model.Artist.Companion.getVideos
-import com.zitherharp.music.model.Video
 import com.zitherharp.music.video.databinding.ActivityVideoBinding
 import com.zitherharp.music.video.ui.artist.ArtistListDialog
 import com.zitherharp.music.video.ui.hashtag.ItemListDialog
-import com.zitherharp.music.video.ui.video.VideoCommentDialog
-import com.zitherharp.music.video.ui.video.VideoDetailDialog
-import com.zitherharp.music.video.ui.video.VideoListAdapter
+import com.zitherharp.music.video.ui.video.*
 
 class VideoActivity : AppCompatActivity() {
     private val binding: ActivityVideoBinding by lazy { ActivityVideoBinding.inflate(layoutInflater) }
@@ -44,7 +40,13 @@ class VideoActivity : AppCompatActivity() {
                 val artists = video.getArtists()
                 val artist = artists.first()
                 artistTitle.text = artists.getName(Language.VIETNAMESE, Spreadsheet.COMBINE_CHAR)
-                artistSubtitle.text = String.format("${artists.getVideos(false).size} video")
+                artistSubtitle.text = String.format("${ArrayList<Video>().apply {
+                    Video.repository.values.forEach { video ->
+                        if (artists.getId() == video.artistId) {
+                            add(video)
+                        }
+                    }
+                }.size} video")
                 artistImage.setImageUrl(artist.getImageUrl(QQMusic.Image.SMALL))
                 artistLayout.setOnClickListener {
                     if (artists.size == 1) {
@@ -66,10 +68,10 @@ class VideoActivity : AppCompatActivity() {
                         ItemListDialog().apply {
                             isCancelable = false
                             arguments = Bundle().apply {
-                                putString(VideoActivity::class.java.name, video.id)
+                                putString(VideoActivity::class.java.name, video.getAudios().getId())
                                 putString(ArtistActivity::class.java.name, video.getArtists().getId())
                             }
-                        }.showNow(supportFragmentManager, text.toString())
+                        }.showNow(supportFragmentManager, getString(com.zitherharp.music.R.string.tag))
                     }
                 }
                 // TODO: VideoButtonLayout

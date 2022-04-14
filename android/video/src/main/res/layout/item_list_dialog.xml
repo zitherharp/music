@@ -45,14 +45,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/item_list_1"
+        android:id="@+id/video_list"
         tools:listitem="@layout/item_list_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/item_list_2"
+        android:id="@+id/artist_list"
         tools:listitem="@layout/item_list_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 

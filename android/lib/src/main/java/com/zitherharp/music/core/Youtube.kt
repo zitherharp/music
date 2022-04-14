@@ -3,7 +3,7 @@ package com.zitherharp.music.core
 import com.zitherharp.music.model.Artist
 import java.util.concurrent.TimeUnit
 
-abstract class Youtube(id: String): Spreadsheet(id) {
+abstract class Youtube(id: String) : Spreadsheet(id) {
     var duration = 0L
     protected var viewCount = 0
     protected var commentCount = 0
@@ -32,14 +32,23 @@ abstract class Youtube(id: String): Spreadsheet(id) {
         MAXRESDEFAULT(1280, 720)
     }
 
+    enum class Url {
+        DEFAULT,
+        SHORTEN,
+        EMBED
+    }
+
     fun toString(language: Language) =
         getName(language) + CONCAT_CHAR + getArtists().getName(language)
 
     fun getImageUrl(image: Image) =
         "https://i.ytimg.com/vi/$id/${image.name.lowercase()}.jpg"
 
-    fun getShareUrl(isEmbed: Boolean = false) =
-        if (!isEmbed) "https://youtu.be/$id" else "https://www.youtube.com/embed/$id"
+    fun getShareUrl(url: Url = Url.SHORTEN) = when (url) {
+        Url.SHORTEN -> "https://youtu.be/$id"
+        Url.DEFAULT -> "https://youtube.com/watch?v=$id"
+        Url.EMBED -> "https://www.youtube.com/embed/$id"
+    }
 
     fun getDuration() = String.format("%02d:%02d",
         TimeUnit.SECONDS.toMinutes(duration),

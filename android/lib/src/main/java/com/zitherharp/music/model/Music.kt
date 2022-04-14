@@ -1,11 +1,8 @@
 package com.zitherharp.music.model
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.zitherharp.music.R
-import com.zitherharp.music.core.Spreadsheet
 
 enum class Music {
     ALBUM,
@@ -45,5 +42,9 @@ enum class Music {
                 VIDEO -> R.mipmap.ic_video_launcher
                 else -> R.mipmap.ic_music_launcher
             })
+    }
+
+    interface Interface {
+        fun getId(): String
     }
 }
