@@ -15,6 +15,7 @@ import com.zitherharp.music.model.Video
 import com.zitherharp.music.ui.adapter.RecyclerViewAdapter
 import com.zitherharp.music.video.VideoActivity
 import com.zitherharp.music.video.databinding.VideoListContentBinding
+import com.zitherharp.music.video.databinding.VideoVerticalContentBinding
 
 class VideoListAdapter(private val context: Context,
                        private val videos: List<Video>):
@@ -27,6 +28,8 @@ class VideoListAdapter(private val context: Context,
         val videoThumbnail = binding.videoThumbnail
         val artistImage = binding.artistImage
     }
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         VideoListContent(

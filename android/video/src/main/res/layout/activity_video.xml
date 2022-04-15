@@ -126,13 +126,13 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/share_video"
                         android:orientation="vertical"
                         android:gravity="center">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/share_video"
                             style="?attr/actionButtonStyle"
                             android:tint="@color/video_app_color"
                             android:src="@drawable/ic_share_24"/>
@@ -147,6 +147,7 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/download_video"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
@@ -154,7 +155,6 @@
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:id="@+id/download_video"
                             style="?attr/actionButtonStyle"
                             android:tint="@color/video_app_color"
                             android:src="@drawable/ic_arrow_download_24"/>

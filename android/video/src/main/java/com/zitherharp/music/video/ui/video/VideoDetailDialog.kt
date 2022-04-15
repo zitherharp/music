@@ -7,18 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.zitherharp.music.Extension.setImageUrl
-import com.zitherharp.music.core.Language
-import com.zitherharp.music.core.QQMusic
-import com.zitherharp.music.core.Spreadsheet
+import com.zitherharp.music.core.*
 import com.zitherharp.music.core.Spreadsheet.Companion.getId
 import com.zitherharp.music.core.Spreadsheet.Companion.getName
 import com.zitherharp.music.model.Video
 import com.zitherharp.music.video.ArtistActivity
-import com.zitherharp.music.video.databinding.VideoDescriptionDialogBinding
+import com.zitherharp.music.video.databinding.VideoDetailDialogBinding
 import com.zitherharp.music.video.ui.artist.ArtistListDialog
 
 class VideoDetailDialog : BottomSheetDialogFragment() {
-    private val binding: VideoDescriptionDialogBinding by lazy { VideoDescriptionDialogBinding.inflate(layoutInflater) }
+    private val binding: VideoDetailDialogBinding by lazy { VideoDetailDialogBinding.inflate(layoutInflater) }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) = binding.root
 
@@ -43,6 +41,7 @@ class VideoDetailDialog : BottomSheetDialogFragment() {
                     }
                 }
                 // TODO: Video
+                videoHashtag.text = video.getHashTag(Language.CHINESE)
                 videoTitle.text = video.getName(Language.VIETNAMESE)
                 videoDescription.text = video.getHashTag(Language.CHINESE).ifEmpty {
                     getString(com.zitherharp.music.R.string.no_information)

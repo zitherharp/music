@@ -36,12 +36,23 @@ class ItemListDialog : BottomSheetDialogFragment() {
             tag?.let { header ->
                 itemHeader.text = header
                 arguments?.let { bundle ->
-                    val hasHashtag = tag == getString(com.zitherharp.music.R.string.tag)
-                    bundle.getString(VideoActivity::class.java.name)?.let { audioIds ->
-                        videoList.adapter = AudioListAdapter(context, audioIds.getAudios())
-                    }
-                    bundle.getString(ArtistActivity::class.java.name)?.let { artistIds ->
-                        artistList.adapter = ArtistListAdapter(context, artistIds.getArtists(), hasHashtag)
+                    when (header) {
+                        getString(com.zitherharp.music.R.string.tag) -> {
+                            bundle.getString(VideoActivity::class.java.name)?.let { audioIds ->
+                                videoList.adapter = HashtagActivity.AudioListAdapter(context, audioIds.getAudios())
+                            }
+                            bundle.getString(ArtistActivity::class.java.name)?.let { artistIds ->
+                                artistList.adapter = HashtagActivity.ArtistListAdapter(context, artistIds.getArtists())
+                            }
+                        }
+                        else -> {
+                            bundle.getString(VideoActivity::class.java.name)?.let { audioIds ->
+                                videoList.adapter = AudioListAdapter(context, audioIds.getAudios())
+                            }
+                            bundle.getString(ArtistActivity::class.java.name)?.let { artistIds ->
+                                artistList.adapter = ArtistListAdapter(context, artistIds.getArtists())
+                            }
+                        }
                     }
                 }
             }
@@ -69,26 +80,9 @@ class ItemListDialog : BottomSheetDialogFragment() {
             )
     }
 
-    class HashtagListAdapter(private val context: Context,
-                             private val audios: List<Audio>) : ItemListAdapter(context, audios) {
-
-        override fun onBindViewHolder(holder: ItemListContent, position: Int) {
-            with(holder) {
-                val audio = audios[position]
-                itemImage.setImageUrl(audio.getImageUrl(Youtube.Image.DEFAULT))
-                itemTitle.text = audio.getName(Language.VIETNAMESE)
-                itemSubtitle.text = String.format("${audio.getVideos().size} video")
-                itemView.setOnClickListener {
-                    context.startActivity(Intent(context, HashtagActivity::class.java).apply {
-                        putExtra(HashtagActivity::class.java.name, audio.id)
-                    })
-                }
-            }
-        }
-    }
-
     class AudioListAdapter(private val context: Context,
-                           private val audios: List<Audio>) : ItemListAdapter(context, audios) {
+                           private val audios: List<Audio>) :
+        ItemListAdapter(context, audios) {
 
         override fun onBindViewHolder(holder: ItemListContent, position: Int) {
             with(holder) {
@@ -106,15 +100,14 @@ class ItemListDialog : BottomSheetDialogFragment() {
     }
 
     class ArtistListAdapter(private val context: Context,
-                            private val artists: List<Artist>,
-                            private val hasHashtag: Boolean = false) : ItemListAdapter(context, artists) {
+                            private val artists: List<Artist>) :
+        ItemListAdapter(context, artists) {
 
         override fun onBindViewHolder(holder: ItemListContent, position: Int) {
             with(holder) {
                 val artist = artists[position]
                 itemImage.setImageUrl(artist.getImageUrl(QQMusic.Image.SMALL))
-                itemTitle.text = if (!hasHashtag)
-                    artist.getName(Language.VIETNAMESE) else "#${artist.getName(Language.CHINESE)}"
+                itemTitle.text = artist.getName(Language.VIETNAMESE)
                 itemSubtitle.text = String.format("${artist.getVideos().size} video")
                 itemView.setOnClickListener {
                     context.startActivity(Intent(context, ArtistActivity::class.java).apply {

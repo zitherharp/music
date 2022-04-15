@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/item_option"
         android:src="@drawable/ic_more_vert"
+        android:tint="@android:color/holo_blue_dark"
         style="?buttonBarStyle"
-        android:tint="@color/video_app_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
