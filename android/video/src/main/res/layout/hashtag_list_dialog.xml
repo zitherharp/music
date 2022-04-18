@@ -15,7 +15,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/item_header"
+            android:id="@+id/hashtag_header"
             android:text="@string/tag"
             android:textColor="@color/video_app_color"
             android:textStyle="bold"
@@ -46,14 +46,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/video_list"
-        tools:listitem="@layout/item_list_content"
+        tools:listitem="@layout/hashtag_list_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/artist_list"
-        tools:listitem="@layout/item_list_content"
+        tools:listitem="@layout/hashtag_list_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -23,7 +23,7 @@ class CategoryGridActivity: AppCompatActivity() {
         with (binding) {
             setContentView(root)
             val albums = preference.get(Preference.ALBUM_ID).getAlbums()
-            val artists = preference.get(Preference.ARTIST_ID).getArtists()
+            val artists = preference.get(Preference.ARTIST_ID)!!.getArtists()
             fun checkFilter(filterId: String?) {
                 when (filterId) {
                     Preference.ALBUM_ID, R.id.album_filter.toString() -> {

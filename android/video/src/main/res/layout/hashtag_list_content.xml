@@ -7,7 +7,7 @@
     android:padding="@dimen/activity_horizontal_margin">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_image_view"
+        android:id="@+id/hashtag_image_view"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:cardCornerRadius="20dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/item_image"
+            android:id="@+id/hashtag_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
@@ -33,22 +33,22 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/activity_horizontal_margin"
-        app:layout_constraintStart_toEndOf="@id/item_image_view"
-        app:layout_constraintEnd_toStartOf="@id/item_option"
+        app:layout_constraintStart_toEndOf="@id/hashtag_image_view"
+        app:layout_constraintEnd_toStartOf="@id/hashtag_option"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/item_title"
+            android:id="@+id/hashtag_title"
             android:textStyle="bold"
             android:text="@string/video_app_name"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/item_subtitle"
+            android:id="@+id/hashtag_subtitle"
             android:text="@string/video_app_name"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
@@ -56,7 +56,7 @@
     <androidx.appcompat.widget.AppCompatImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/item_option"
+        android:id="@+id/hashtag_option"
         android:src="@drawable/ic_more_vert"
         android:tint="@android:color/holo_blue_dark"
         style="?buttonBarStyle"

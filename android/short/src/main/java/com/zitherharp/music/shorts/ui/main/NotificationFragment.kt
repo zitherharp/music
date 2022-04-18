@@ -9,6 +9,7 @@ import com.zitherharp.music.model.Artist
 import com.zitherharp.music.model.Audio
 import com.zitherharp.music.shorts.MainActivity
 import com.zitherharp.music.R
+import com.zitherharp.music.model.Artist.Companion.getShorts
 import com.zitherharp.music.model.Short
 import com.zitherharp.music.shorts.databinding.NotificationMainFragmentBinding
 import com.zitherharp.music.shorts.model.User
@@ -54,7 +55,7 @@ class NotificationFragment: Fragment() {
                 1 -> return shortFragment
                 2 -> return artistFragment
             }
-            return super.createFragment(position)
+            return audioFragment
         }
     }
 }

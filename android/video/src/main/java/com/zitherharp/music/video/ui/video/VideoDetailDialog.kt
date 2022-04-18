@@ -10,10 +10,14 @@ import com.zitherharp.music.Extension.setImageUrl
 import com.zitherharp.music.core.*
 import com.zitherharp.music.core.Spreadsheet.Companion.getId
 import com.zitherharp.music.core.Spreadsheet.Companion.getName
+import com.zitherharp.music.model.Artist
+import com.zitherharp.music.model.Audio
 import com.zitherharp.music.model.Video
 import com.zitherharp.music.video.ArtistActivity
+import com.zitherharp.music.video.HashtagActivity.Companion.getHashtag
 import com.zitherharp.music.video.databinding.VideoDetailDialogBinding
 import com.zitherharp.music.video.ui.artist.ArtistListDialog
+import com.zitherharp.music.video.ui.hashtag.HashtagListDialog
 
 class VideoDetailDialog : BottomSheetDialogFragment() {
     private val binding: VideoDetailDialogBinding by lazy { VideoDetailDialogBinding.inflate(layoutInflater) }
@@ -41,10 +45,21 @@ class VideoDetailDialog : BottomSheetDialogFragment() {
                     }
                 }
                 // TODO: Video
-                videoHashtag.text = video.getHashTag(Language.CHINESE)
                 videoTitle.text = video.getName(Language.VIETNAMESE)
-                videoDescription.text = video.getHashTag(Language.CHINESE).ifEmpty {
+                videoDescription.text = video.getHashtag(Language.CHINESE).ifEmpty {
                     getString(com.zitherharp.music.R.string.no_information)
+                }
+                videoHashtag.run {
+                    text = video.getHashtag(Language.CHINESE)
+                    setOnClickListener {
+                        HashtagListDialog().apply {
+                            isCancelable = false
+                            arguments = Bundle().apply {
+                                putString(Audio::class.java.name, video.getAudios().getId())
+                                putString(Artist::class.java.name, video.getArtists().getId())
+                            }
+                        }.showNow(requireActivity().supportFragmentManager, getString(com.zitherharp.music.R.string.tag))
+                    }
                 }
                 // TODO: Others
                 audioName.text = videoTitle.text

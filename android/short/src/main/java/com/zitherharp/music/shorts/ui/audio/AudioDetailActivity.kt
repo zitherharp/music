@@ -56,7 +56,7 @@ class AudioDetailActivity: AppCompatActivity() {
                 0 -> return audioFragment
                 1 -> return shortFragment
             }
-            return super.createFragment(position)
+            return audioFragment
         }
     }
 }

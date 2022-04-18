@@ -27,12 +27,15 @@
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/fragment_notifications.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/hash_tag_list_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/hash_tag_list_item.xml" value="0.225" />
+        <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/hashtag_list_content.xml" value="0.225" />
+        <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/hashtag_list_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/item_list_content.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/item_list_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/main_explorer_fragment.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_artist_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_comment_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_description_dialog.xml" value="0.225" />
+        <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_detail_dialog.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_list_content.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/layout/video_vertical_content.xml" value="0.225" />
         <entry key="..\:/Repositories/Music/android/video/src/main/res/menu/bottom_nav_menu.xml" value="0.225" />

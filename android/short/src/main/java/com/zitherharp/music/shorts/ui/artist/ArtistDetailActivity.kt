@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import com.zitherharp.music.core.Language
 import com.zitherharp.music.model.Artist
+import com.zitherharp.music.model.Artist.Companion.getAudios
+import com.zitherharp.music.model.Artist.Companion.getShorts
 import com.zitherharp.music.model.Audio
 import com.zitherharp.music.model.Short
 import com.zitherharp.music.shorts.databinding.ArtistDetailActivityBinding
@@ -55,7 +57,7 @@ class ArtistDetailActivity: AppCompatActivity() {
                 0 -> return audioFragment
                 1 -> return shortFragment
             }
-            return super.createFragment(position)
+            return audioFragment
         }
     }
 }

@@ -9,7 +9,6 @@ import com.zitherharp.music.Extension.setImageUrl
 import com.zitherharp.music.core.Language
 import com.zitherharp.music.core.QQMusic
 import com.zitherharp.music.model.Artist
-import com.zitherharp.music.model.Artist.Companion.getVideos
 import com.zitherharp.music.ui.adapter.RecyclerViewAdapter
 import com.zitherharp.music.video.ArtistActivity
 import com.zitherharp.music.video.databinding.ArtistListItemBinding

@@ -44,7 +44,7 @@ class HomeFragment: Fragment() {
                 0 -> return followFragment
                 1 -> return recommendFragment
             }
-            return super.createFragment(position)
+            return followFragment
         }
     }
 }

@@ -17,21 +17,25 @@ import com.zitherharp.music.core.*
 import com.zitherharp.music.core.Spreadsheet.Companion.getId
 import com.zitherharp.music.core.Spreadsheet.Companion.getName
 import com.zitherharp.music.model.*
-import com.zitherharp.music.model.Artist.Companion.getVideos
 import com.zitherharp.music.ui.adapter.RecyclerViewAdapter
+import com.zitherharp.music.video.HashtagActivity.Companion.getHashtag
 import com.zitherharp.music.video.databinding.ActivityVideoBinding
-import com.zitherharp.music.video.databinding.VideoListContentBinding
 import com.zitherharp.music.video.databinding.VideoVerticalContentBinding
 import com.zitherharp.music.video.ui.artist.ArtistListDialog
-import com.zitherharp.music.video.ui.hashtag.ItemListDialog
+import com.zitherharp.music.video.ui.hashtag.HashtagListDialog
 import com.zitherharp.music.video.ui.video.*
+import java.lang.StringBuilder
 
 class VideoActivity : AppCompatActivity() {
     private val binding: ActivityVideoBinding by lazy { ActivityVideoBinding.inflate(layoutInflater) }
 
+    companion object {
+        const val VIDEO_ID = "videoId"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Video.repository[intent.getStringExtra(VideoActivity::class.java.name)]?.let { video ->
+        Video.repository[intent.getStringExtra(VIDEO_ID)]?.let { video ->
             with(binding) {
                 setContentView(root)
                 // TODO: VideoPlayerView
@@ -70,13 +74,13 @@ class VideoActivity : AppCompatActivity() {
                 videoTitle.text = video.getName(Language.VIETNAMESE)
                 videoSubtitle.text = artists.getName(Language.VIETNAMESE)
                 videoHashTag.run {
-                    text = video.getHashTag(Language.CHINESE)
+                    text = video.getHashtag(Language.CHINESE)
                     setOnClickListener {
-                        ItemListDialog().apply {
+                        HashtagListDialog().apply {
                             isCancelable = false
                             arguments = Bundle().apply {
-                                putString(VideoActivity::class.java.name, video.getAudios().getId())
-                                putString(ArtistActivity::class.java.name, video.getArtists().getId())
+                                putString(Audio::class.java.name, video.getAudios().getId())
+                                putString(Artist::class.java.name, video.getArtists().getId())
                             }
                         }.showNow(supportFragmentManager, getString(com.zitherharp.music.R.string.tag))
                     }

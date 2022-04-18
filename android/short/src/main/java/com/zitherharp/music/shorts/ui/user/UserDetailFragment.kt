@@ -44,7 +44,7 @@ class UserDetailFragment: Fragment() {
             with(user) {
                 shorts = shortId.getShorts()
                 audios = audioId.getAudios()
-                artists = artistId.getArtists()
+                artists = artistId!!.getArtists()
                 with(userId) {
                     text = String.format("ID: ${user.id}")
                     setOnClickListener { copyToClipboard() }
@@ -95,7 +95,7 @@ class UserDetailFragment: Fragment() {
                 1 -> return shortFragment
                 2 -> return artistFragment
             }
-            return super.createFragment(position)
+            return audioFragment
         }
     }
 }

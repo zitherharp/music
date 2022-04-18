@@ -26,7 +26,7 @@ class YoutubeExtension {
                         Intent.createChooser(
                             Intent(Intent.ACTION_SEND).apply {
                                 type = "text/plain"
-                                putExtra(Intent.EXTRA_TEXT, getShareUrl(isEmbed))
+                                putExtra(Intent.EXTRA_TEXT, getShareUrl())
                             }, context.getString(R.string.share)))
                 }
             }
