@@ -38,7 +38,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/video_app_color"/>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -122,6 +122,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/like_count"
                     android:textStyle="bold"
                     android:text="2"/>
 
@@ -142,6 +143,7 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/view_count"
                     android:textStyle="bold"
                     android:text="132"/>
 
@@ -233,9 +235,10 @@
                 android:text="@string/song"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/audio_name"
+                android:ellipsize="end"
                 android:text="@string/audio"/>
         </TableRow>
 
@@ -247,9 +250,10 @@
                 android:text="@string/artist"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/artist_name"
+                android:ellipsize="end"
                 android:text="@string/artist"/>
         </TableRow>
 
@@ -264,6 +268,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/album_name"
+                android:ellipsize="end"
                 android:text="@string/album"/>
         </TableRow>
 
@@ -278,6 +283,7 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:text="@string/music_app_name"/>
         </TableRow>
 

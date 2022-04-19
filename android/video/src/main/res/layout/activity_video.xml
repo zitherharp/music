@@ -126,13 +126,13 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/share_video"
                         android:orientation="vertical"
                         android:gravity="center">
 
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/share_video"
                             style="?attr/actionButtonStyle"
                             android:tint="@color/video_app_color"
                             android:src="@drawable/ic_share_24"/>
@@ -147,7 +147,6 @@
                     <androidx.appcompat.widget.LinearLayoutCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/download_video"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:layout_marginHorizontal="@dimen/activity_horizontal_margin">
@@ -155,6 +154,7 @@
                         <androidx.appcompat.widget.AppCompatImageButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:id="@+id/download_video"
                             style="?attr/actionButtonStyle"
                             android:tint="@color/video_app_color"
                             android:src="@drawable/ic_arrow_download_24"/>
@@ -193,7 +193,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@color/video_app_color"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -236,6 +236,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/artist_title"
+                        android:ellipsize="end"
+                        android:maxLines="2"
                         android:text="@string/video_app_name"
                         android:textStyle="bold" />
 
@@ -274,7 +276,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@color/video_app_color"/>
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -353,7 +355,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@android:color/darker_gray"/>
+                android:background="@color/video_app_color"/>
 
             <include
                 android:id="@+id/video_list_layout"

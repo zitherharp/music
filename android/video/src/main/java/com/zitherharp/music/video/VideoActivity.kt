@@ -50,7 +50,7 @@ class VideoActivity : AppCompatActivity() {
                 // TODO: ArtistDetailLayout
                 val artists = video.getArtists()
                 val artist = artists.first()
-                artistTitle.text = artists.getName(Language.VIETNAMESE, Spreadsheet.COMBINE_CHAR)
+                artistTitle.text = artists.getName(Language.VIETNAMESE)
                 artistSubtitle.text = String.format("${ArrayList<Video>().apply {
                     Video.repository.values.forEach { video ->
                         if (artists.getId() == video.artistId) {

@@ -18,6 +18,7 @@ import com.zitherharp.music.video.HashtagActivity.Companion.getHashtag
 import com.zitherharp.music.video.databinding.VideoDetailDialogBinding
 import com.zitherharp.music.video.ui.artist.ArtistListDialog
 import com.zitherharp.music.video.ui.hashtag.HashtagListDialog
+import kotlin.random.Random
 
 class VideoDetailDialog : BottomSheetDialogFragment() {
     private val binding: VideoDetailDialogBinding by lazy { VideoDetailDialogBinding.inflate(layoutInflater) }
@@ -31,7 +32,7 @@ class VideoDetailDialog : BottomSheetDialogFragment() {
                 // TODO: Artist
                 val artists = video.getArtists()
                 val artist = artists.first()
-                artistTitle.text = artists.getName(Language.VIETNAMESE, Spreadsheet.COMBINE_CHAR)
+                artistTitle.text = artists.getName(Language.VIETNAMESE)
                 artistImage.setImageUrl(artist.getImageUrl(QQMusic.Image.SMALL))
                 artistLayout.setOnClickListener {
                     if (artists.size == 1) {
@@ -61,6 +62,8 @@ class VideoDetailDialog : BottomSheetDialogFragment() {
                         }.showNow(requireActivity().supportFragmentManager, getString(com.zitherharp.music.R.string.tag))
                     }
                 }
+                likeCount.text = String.format("${Random.nextInt(1, 10)}")
+                viewCount.text = String.format("${Random.nextInt(1, 1000)}")
                 // TODO: Others
                 audioName.text = videoTitle.text
                 albumName.text = videoTitle.text

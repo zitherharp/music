@@ -6,13 +6,15 @@
     android:layout_height="wrap_content"
     android:padding="@dimen/activity_horizontal_margin">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/hashtag_image_view"
         android:layout_width="40dp"
         android:layout_height="40dp"
+        android:layout_gravity="center"
         app:cardCornerRadius="20dp"
         app:cardElevation="0dp"
-        android:layout_gravity="center"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/video_app_color"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -26,7 +28,7 @@
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_video_launcher" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="0dp"
@@ -58,7 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/hashtag_option"
         android:src="@drawable/ic_more_vert"
-        android:tint="@android:color/holo_blue_dark"
+        android:tint="@color/video_app_color"
         style="?buttonBarStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

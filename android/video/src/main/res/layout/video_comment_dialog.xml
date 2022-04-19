@@ -84,6 +84,7 @@
             android:id="@+id/comment_box"
             android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
             android:hint="@string/comment"
+            android:backgroundTint="@color/video_app_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/user_image_view"

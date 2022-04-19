@@ -38,7 +38,7 @@ class VideoVerticalAdapter(private val context: Context,
             videoTitle.text = video.getName(Language.VIETNAMESE)
             videoSubtitle.text = video.getArtists().getName(Language.VIETNAMESE)
             videoDuration.text = video.getDuration()
-            videoThumbnail.setImageUrl(video.getImageUrl(Youtube.Image.MQDEFAULT))
+            videoThumbnail.setImageUrl(video.getImageUrl(Youtube.Image.HQDEFAULT))
             itemView.setOnClickListener {
                 context.startActivity(Intent(context, VideoActivity::class.java).apply {
                     putExtra(VideoActivity.VIDEO_ID, video.id)
