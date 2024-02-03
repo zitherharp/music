@@ -1,3 +1,6 @@
-[submodule "src2"]
-	path = src2
+[submodule "src"]
+	path = src
 	url = https://github.com/zitherharpmusic/src.git
+[submodule "television"]
+	path = television
+	url = https://github.com/zitherharpmusic/television.git
