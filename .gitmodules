@@ -1,6 +1,9 @@
 [submodule "src"]
 	path = src
 	url = https://github.com/zitherharpmusic/src.git
+[submodule "short"]
+	path = short
+	url = https://github.com/zitherharpmusic/short.git
 [submodule "television"]
 	path = television
 	url = https://github.com/zitherharpmusic/television.git

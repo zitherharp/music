@@ -3,4 +3,5 @@
 - Kho nhạc của Zither Harp Music luôn cập nhật những bản nhạc mới nhất để đáp ứng nhu cầu của người dùng: cung cấp đầy đủ các chức năng tìm kiếm, thêm bài hát, dịch nghĩa bài hát, thông tin ca sĩ, nội dung liên quan...
 
 ## Modules
-- [Television](https://play.google.com/store/apps/details?id=com.zitherharp.music.television)
+- [Short](https://github.com/zitherharpmusic/short.git)
+- [Television](https://github.com/zitherharpmusic/television.git)
