@@ -2,7 +2,7 @@
 	path = src
 	url = https://github.com/zitherharpmusic/src.git
 [submodule "short"]
-	path = short
+	path = shorts
 	url = https://github.com/zitherharpmusic/short.git
 [submodule "television"]
 	path = television
